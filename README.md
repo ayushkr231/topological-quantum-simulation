@@ -30,12 +30,10 @@ Running the simulation for $N=20$ unit cells yields the following spectrum:
 ### How to Run
 Required libraries: `numpy`, `matplotlib`
 
+```bash
+python ssh_simulation.py
+
 ### Next Steps (Work in Progress)
 I am currently extending this code to study **disorder and noise**:
 - Introducing random onsite potential (Anderson Localization).
 - Simulating non-Hermitian terms (Atom loss) to check the robustness of the edge states.
-
-```bash
-python ssh_simulation.py
-
-
