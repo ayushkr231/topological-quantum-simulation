@@ -16,6 +16,7 @@ $$H = \sum_{n} (v |n,A\rangle\langle n,B| + w |n,B\rangle\langle n+1,A| + h.c.)$
 where:
 - $v$: Intracell hopping amplitude.
 - $w$: Intercell hopping amplitude.
+- $h.c.$: Hermitian conjugate (adds the reverse hopping processes to ensure real energy).
 
 **Phase Diagram:**
 1. **Trivial Phase ($v > w$):** The bulk has an energy gap, and there are no states at $E=0$.
