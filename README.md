@@ -1,5 +1,7 @@
 **Author:** Ayush Kumar
+
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://topological-quantum-simulation-bkws4kw33mrwn8jrcpm9r4.streamlit.app/)
+
 **Affiliation:** IISER Bhopal / IIT Madras
 
 ### Overview
