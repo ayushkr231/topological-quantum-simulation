@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # --- PAGE CONFIGURATION ---
+# Sets the browser tab title and layout
 st.set_page_config(
     page_title="SSH Model Simulator",
     page_icon="⚛️",
@@ -22,6 +23,7 @@ It demonstrates the **Bulk-Boundary Correspondence** by visualizing the emergenc
 # --- SIDEBAR: EXPERIMENTAL PARAMETERS ---
 st.sidebar.header("🔬 Simulation Parameters")
 
+# Grouping parameters for better UI
 with st.sidebar.expander("Lattice Configuration", expanded=True):
     N = st.slider("Unit Cells (N)", min_value=5, max_value=40, value=20, help="Total sites = 2N")
     st.caption(f"Total Sites: {2*N}")
@@ -44,9 +46,9 @@ def get_hamiltonian(N, v, w):
     H = np.zeros((dim, dim))
     for i in range(dim - 1):
         if i % 2 == 0:
-            H[i, i+1] = v; H[i+1, i] = v # Intracell
+            H[i, i+1] = v; H[i+1, i] = v # Intracell (A-B)
         else:
-            H[i, i+1] = w; H[i+1, i] = w # Intercell
+            H[i, i+1] = w; H[i+1, i] = w # Intercell (B-A)
     return H
 
 # Perform Calculation
@@ -104,11 +106,12 @@ with col2:
             prob_density = np.abs(psi)**2
             ax2.plot(np.arange(2*N), prob_density, '.-', label=f"E = {eigenvalues[idx]:.4f}")
             
-        ax2.set_title("Wavefunction Probability Density $|\psi|^2$")
+        ax2.set_title(r"Wavefunction Probability Density $|\psi|^2$")
         ax2.set_xlabel("Lattice Site")
         ax2.legend()
+        ax2.grid(True, alpha=0.2)
         st.pyplot(fig2)
-        st.caption("Note: The probability density is peaked at the boundaries (Site 0 and Site 2N).")
+        st.caption("Notice the peaks at sites 0 and 2N. The electron is localized at the edges.")
         
     else:
         # In trivial phase, just plot a bulk state to show it's delocalized
@@ -118,8 +121,9 @@ with col2:
         ax2.set_title("Bulk State Density (Delocalized)")
         ax2.set_xlabel("Lattice Site")
         ax2.set_ylim(0, 0.5) # Fix scale to avoid jumping
+        ax2.grid(True, alpha=0.2)
         st.pyplot(fig2)
-        st.caption("In the trivial phase, electrons are delocalized across the chain.")
+        st.caption("In the trivial phase, electrons are spread across the chain.")
 
 # --- EXPANDER: THEORETICAL BACKGROUND ---
 st.divider()
