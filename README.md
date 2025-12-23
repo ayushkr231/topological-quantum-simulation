@@ -45,7 +45,7 @@ I benchmarked the **Quantum Phase Estimation (QPE)** algorithm to detect these t
 **Calibration Result (Vacuum State):**
 The algorithm successfully recovered the vacuum energy ($E=0$) with **$10^{-4}$ precision**, validating the Trotter-Suzuki decomposition.
 
-```text
+
 [Results] Top Detected Energies (Vacuum):
 Bitstring  | Prob   | Phase    | Energy (Est) | Error
 -------------------------------------------------------
